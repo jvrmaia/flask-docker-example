@@ -3,7 +3,7 @@ Flask dockerize example
 
 # Requirements
 
-* Python 3.x
+* Python 3.8+
 * Docker
 
 # Run local
