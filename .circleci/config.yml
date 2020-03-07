@@ -16,15 +16,6 @@ jobs:
                 name: Build flask-docker-example image
                 command: docker build -t flask-docker-example:latest .
 
-    scan_images:
-        executor: clair-scanner/default
-        steps:
             - clair-scanner/scan:
                 image: flask-docker-example:latest
 
-workflows:
-    version: 2
-    build_and_scan:
-        jobs:
-            - build
-            - scan_images
