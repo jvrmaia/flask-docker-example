@@ -1,5 +1,6 @@
-FROM python:3.6.3
-MAINTAINER Joao Maia "joao@joaovrmaia.com"
+FROM python:3.8
+
+LABEL maintainer "Joao Maia <joao@joaovrmaia.com>"
 
 COPY . /app
 
