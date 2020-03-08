@@ -5,6 +5,15 @@ orbs:
     clair-scanner: ovotech/clair-scanner@1.6.0
 
 jobs:
+    static-check:
+        machine: true
+        steps:
+            - checkout
+
+            - run:
+                name: Dockerfile lint
+                command: docker run --rm -i hadolint/hadolint < Dockerfile
+
     build:
         machine: true
         steps:
@@ -32,5 +41,6 @@ workflows:
     version: 2
     build_and_scan:
         jobs:
+            - static-check
             - build
             - scan_images

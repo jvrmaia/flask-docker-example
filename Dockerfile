@@ -8,11 +8,12 @@ WORKDIR /app
 
 RUN useradd -r app \
     && chown -R app /app \
-    && apt update -y \
-    && apt dist-upgrade -y \
-    && pip install poetry \
+    && apt-get update -y \
+    && apt-get dist-upgrade -y \
+    && pip3 install poetry==1.0.5 \
     && poetry config virtualenvs.create false \
-    && poetry install
+    && poetry install \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV VERSION=0.1.0
 
