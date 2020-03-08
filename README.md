@@ -1,23 +1,21 @@
 Flask dockerize example
 ----
 
+whoami app!
+
 # Requirements
 
-* Python 3.8+
+* Python 3.8.2
 * Docker
+* Poetry 1.0.5
 
-# Run local
+# Execute
 
-```
-pip install -r requirements.txt
-FLASK_APP=app.py flask run
-```
+## Run local
 
-# Build container
+    make run-local
 
-docker build -t flask-example:0.1.0 .
+## Run container
 
-# Run container
-
-docker run --rm -d -p 8080:5000 flask-example:0.1.0
+    make run-docker
 
