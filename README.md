@@ -15,9 +15,9 @@ FLASK_APP=app.py flask run
 
 # Build container
 
-docker build -t flask-example:0.0.1 .
+docker build -t flask-example:0.1.0 .
 
 # Run container
 
-docker run --rm -d -p 8080:5000 flask-example:0.0.1
+docker run --rm -d -p 8080:5000 flask-example:0.1.0
 
