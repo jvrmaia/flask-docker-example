@@ -24,6 +24,14 @@ jobs:
                 command: docker build -t jvrmaia/flask-docker-example:latest .
 
             - run:
+                name: Build pylint image
+                command: docker build -t pylint -f ./utils/pylint/Dockerfile ./utils/pylint/
+
+            - run:
+                name: pylint
+                command: docker run --rm pylint /app
+
+            - run:
                 name: Login Docker Hub
                 command: docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS
 

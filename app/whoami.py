@@ -1,15 +1,22 @@
+"""
+whoami app
+"""
+
 import socket
 from flask import Flask, jsonify
 from decouple import config
 
-app = Flask(__name__)
-
+APP = Flask(__name__)
 VERSION = config('VERSION', 'dev', cast=str)
 
-@app.route("/")
+@APP.route("/")
 def index():
+    """
+    Root application index.
+    Returns JSON with application and host data.
+    """
     hostname = socket.gethostname()
-    
+
     info = {
         'app_name': 'whoami',
         'hostname': hostname,

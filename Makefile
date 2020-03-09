@@ -1,14 +1,14 @@
-APP_VERSION=0.1.0
+APP_VERSION=0.1.1
 
 dep:
-	poetry install
+	cd ./app && poetry install
 
 run-local: dep
-	FLASK_APP=whoami.py flask run
+	FLASK_APP=./app/whoami.py flask run
 
 img:
 	docker build --rm -t "whoami:${APP_VERSION}" .
 
 run-docker: img
-	docker run --rm -d -p 5000 "whoami:${APP_VERSION}" --name "whoami:${APP_VERSION}"
+	docker run --rm -d -p 5000 --hostname whoami --name whoami "whoami:${APP_VERSION}"
 

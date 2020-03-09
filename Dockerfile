@@ -15,7 +15,7 @@ RUN useradd -r app \
     && poetry install \
     && rm -rf /var/lib/apt/lists/*
 
-ENV VERSION=0.1.0
+ENV VERSION=0.1.1
 
 EXPOSE 5000
 
@@ -23,4 +23,4 @@ USER app
 
 ENTRYPOINT ["gunicorn"]
 
-CMD ["--bind", "0.0.0.0:5000", "whoami:app"]
+CMD ["--bind", "0.0.0.0:5000", "whoami:APP"]
