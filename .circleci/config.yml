@@ -6,8 +6,7 @@ orbs:
 
 jobs:
     static-check:
-        machine:
-            docker_layer_caching: true
+        machine: true
         steps:
             - checkout
 
@@ -16,8 +15,7 @@ jobs:
                 command: docker run --rm -i hadolint/hadolint < Dockerfile
 
     build:
-        machine:
-            docker_layer_caching: true
+        machine: true
         steps:
             - checkout
 
@@ -33,13 +31,13 @@ jobs:
                 name: pylint
                 command: docker run --rm pylint /app
 
-            # - run:
-            #     name: Login Docker Hub
-            #     command: docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS
+            - run:
+                name: Login Docker Hub
+                command: docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS
 
-            # - run:
-            #     name: Push image to Docker Hub
-            #     command: docker push jvrmaia/flask-docker-example:latest
+            - run:
+                name: Push image to Docker Hub
+                command: docker push jvrmaia/flask-docker-example:latest
 
     scan_images:
         executor: clair-scanner/default
