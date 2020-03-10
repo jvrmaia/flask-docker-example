@@ -11,4 +11,3 @@ img:
 
 run-docker: img
 	docker run --rm -d -p 5000 --hostname whoami --name whoami "whoami:${APP_VERSION}"
-
