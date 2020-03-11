@@ -10,5 +10,4 @@ img:
 	docker build --rm -t "whoami:${APP_VERSION}" .
 
 run-docker: img
-	docker run --rm -d -p 5000 --hostname whoami --name whoami "whoami:${APP_VERSION}"
-
+	docker-compose up -d
