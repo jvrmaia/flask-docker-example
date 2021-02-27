@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+  whoami:
+    hostname: whoami
+    image: 'whoami:0.1.1'
+    ports:
+      - 5000
+    networks:
+      - whoami
+
+networks:
+  whoami:
