@@ -5,9 +5,9 @@ whoami app!
 
 # Requirements
 
-* Python 3.8.2
+* Python 3.10.5
 * Docker
-* Poetry 1.0.5
+* Poetry 1.1.14
 
 # Execute
 
@@ -19,3 +19,9 @@ whoami app!
 
     make run-docker
 
+# TODO
+
+- [ ] Add Prometheus
+- [ ] Add logging
+- [ ] Add more endpoints
+- [ ] Improve docs

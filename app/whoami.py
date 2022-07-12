@@ -6,10 +6,11 @@ import socket
 from flask import Flask, jsonify
 from decouple import config
 
-APP = Flask(__name__)
-VERSION = config('VERSION', 'dev', cast=str)
+app = Flask(__name__)
+version = config("VERSION", "dev", cast=str)
 
-@APP.route("/")
+
+@app.route("/")
 def index():
     """
     Root application index.
@@ -17,10 +18,6 @@ def index():
     """
     hostname = socket.gethostname()
 
-    info = {
-        'app_name': 'whoami',
-        'hostname': hostname,
-        'version': VERSION
-    }
+    info = {"app_name": "whoami", "hostname": hostname, "version": version}
 
     return jsonify(info)
